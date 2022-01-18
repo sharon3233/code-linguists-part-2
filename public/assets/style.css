@@ -1,0 +1,14 @@
+.fade-text-4xl {
+    animation: fadeIn 6s;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
