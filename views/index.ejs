@@ -21,30 +21,36 @@
       <a href="/signup"id="hog">Sign Up</a>
     </div>
     
-    <div id="tom's-entries">
+    <div id="toms-entries">
       <div>
           <img  src="https://riddleimages.s3.amazonaws.com/Tom_Diary.png" style="width:900px;height:300px;" class="center">
           <br/>
-          <form action="/html/tags/html_form_tag_action.cfm" method="post">
-            Tom's Entries:<br />
+          <form>
+            Tom's Entry:<br />
             <textarea name="tom's-entry" id="tom's-entry">
             </textarea><br />
-            <input onclick="editDiary()" type="submit" value="Add Entry" />
+            <button id="add-entry" value="tom's-entry">Add Entry</button>
           </form>
       </div>
     </div>
     <script>
-      function editDiary() {
+      const submitBtn = document.getElementById("add-entry")
+      submitBtn.addEventListener("click", editDiary)
+      
+      function editDiary(e) {
+        e.preventDefault()
         const diaryInput = document.getElementById("tom's-entry").value;
         const div = document.createElement('div');
-        div.className = 'new-entry';
+        div.className = 'diary-entry'
         const para = document.createElement("p");
-        const node = document.createTextNode(diaryInput);
-        div.appendChild(para);
-        para.appendChild(node);
-
-        const element = document.getElementById("tom's-entries");
-        element.appendChild(div);
+        para.append(diaryInput)
+        div.append(para);
+      
+        const element = document.getElementById("toms-entries");
+        element.append(div);
+        element.style.display = 'block'
+        element.style.visibility = 'visible'
+        alert(para)
       }
     </script>
   </body>
