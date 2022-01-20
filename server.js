@@ -32,6 +32,10 @@ app.get('/signup', (req, res) => {
 
 })
 
+app.get('/entries', (req, res) => {
+  res.render('entries.ejs')
+})
+
 
 
 // specify out request bodies are json
@@ -41,13 +45,13 @@ app.use(express.json());
 seed();
 
 // basic auth needs a config object
-app.use(
-  basicAuth({
-    authorizer: dbAuthorizer, //custom authorizer fn
-    authorizeAsync: true, //allow our authorizer to be async
-    unauthorizedResponse: (req, res) => "Welcome to Hogwarts Damon!",
-  })
-);
+// app.use(
+//   basicAuth({
+//     authorizer: dbAuthorizer, //custom authorizer fn
+//     authorizeAsync: true, //allow our authorizer to be async
+//     unauthorizedResponse: (req, res) => "Welcome to Hogwarts Damon!",
+//   })
+// );
 
 //compares username + password with what's in the database
 // Returns boolean indicating if password matches
