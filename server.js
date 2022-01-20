@@ -45,7 +45,7 @@ app.use(
   basicAuth({
     authorizer: dbAuthorizer, //custom authorizer fn
     authorizeAsync: true, //allow our authorizer to be async
-    unauthorizedResponse: (req, res) => "You are not a Wizard!",
+    unauthorizedResponse: (req, res) => "Welcome to Hogwarts Damon!",
   })
 );
 
