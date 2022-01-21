@@ -1,21 +1,40 @@
 <body>
-    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
-      <img src="https://img.icons8.com/ios-filled/50/000000/hogwarts.png"/>
-      <span id="hog"class="font-semibold">Hogwarts</span>
-      <link rel="stylesheet" href="https://csstom.s3.amazonaws.com/main.css">
-      <h1 id="fadein"class=" text-center font-semibold text x-large">Welcome to Hogwarts Damon</h1>
-    <form>
-        Tom's Entry:<br />
-        <textarea name="tom's-entry" id="tom's-entry">
+  <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap" rel="stylesheet">
+  <img src="https://img.icons8.com/ios-filled/50/000000/hogwarts.png" />
+  <span id="hog" class="font-semibold">Hogwarts</span>
+  <link rel="stylesheet" href="https://csstom.s3.amazonaws.com/main.css">
+  <h1 id="fadein" class=" text-center font-semibold text x-large">Welcome to Hogwarts Damon</h1>
+  <form>
+    Tom's Entry:<br />
+    <textarea name="tom's-entry" id="tom's-entry">
         </textarea><br />
-        <button id="add-entry" value="tom's-entry">Add Entry</button>
-      </form>
+    <button id="add-entry" value="tom's-entry">Add Entry</button>
+  </form>
   </div>
-</div>
+  </div>
+  <script>
+    const submitBtn = document.getElementById("add-entry")
+    submitBtn.addEventListener("click", editDiary)
 
+    function editDiary(e) {
+      e.preventDefault()
+      const diaryInput = document.getElementById("tom's-entry").value;
+      const div = document.createElement('div');
+      div.className = 'diary-entry'
+      const para = document.createElement("p");
+      para.append(diaryInput)
+      div.append(para);
+
+      const element = document.getElementById("toms-entries");
+      element.append(div);
+      element.style.display = 'block'
+      element.style.visibility = 'visible'
+      alert(para)
+    }
+  </script>
 </body>
